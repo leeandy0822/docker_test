@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ncrl/docker_test/catkin_ws/src/Robotics/finalproject/offb/include/lpf.cpp
+lpf.h
+/home/ncrl/docker_test/catkin_ws/src/Robotics/finalproject/offb/include/lpf.h
+
+/home/ncrl/docker_test/catkin_ws/src/Robotics/finalproject/offb/include/lpf.h
+math.h
+/home/ncrl/docker_test/catkin_ws/src/Robotics/finalproject/offb/include/math.h
+

@@ -1,8 +1,8 @@
-prefix=/home/leeandy/catkin_ws/devel
+prefix=/home/ncrl/docker_test/catkin_ws/devel
 
 Name: rotors_hil_interface
 Description: Description of rotors_hil_interface
 Version: 2.2.3
-Cflags: -I/home/leeandy/catkin_ws/src/Multi-Transportation-ICL/rotors_simulator/rotors_hil_interface/include
+Cflags: -I/home/ncrl/docker_test/catkin_ws/src/Robotics/finalproject/rotors_simulator/rotors_hil_interface/include
 Libs: -L${prefix}/lib -lrotors_hil_interface
 Requires: geometry_msgs mav_msgs mavros mavros_msgs roscpp sensor_msgs

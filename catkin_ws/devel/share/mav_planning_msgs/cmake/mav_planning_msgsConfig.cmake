@@ -67,14 +67,14 @@ set(mav_planning_msgs_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(mav_planning_msgs_SOURCE_PREFIX /home/leeandy/catkin_ws/src/Multi-Transportation-ICL/mav_comm/mav_planning_msgs)
-  set(mav_planning_msgs_DEVEL_PREFIX /home/leeandy/catkin_ws/devel)
+  set(mav_planning_msgs_SOURCE_PREFIX /home/ncrl/docker_test/catkin_ws/src/Robotics/finalproject/mav_comm/mav_planning_msgs)
+  set(mav_planning_msgs_DEVEL_PREFIX /home/ncrl/docker_test/catkin_ws/devel)
   set(mav_planning_msgs_INSTALL_PREFIX "")
   set(mav_planning_msgs_PREFIX ${mav_planning_msgs_DEVEL_PREFIX})
 else()
   set(mav_planning_msgs_SOURCE_PREFIX "")
   set(mav_planning_msgs_DEVEL_PREFIX "")
-  set(mav_planning_msgs_INSTALL_PREFIX /home/leeandy/catkin_ws/install)
+  set(mav_planning_msgs_INSTALL_PREFIX /home/ncrl/docker_test/catkin_ws/install)
   set(mav_planning_msgs_PREFIX ${mav_planning_msgs_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(mav_planning_msgs_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/leeandy/catkin_ws/devel/include;/home/leeandy/catkin_ws/src/Multi-Transportation-ICL/mav_comm/mav_planning_msgs/include;/usr/include/eigen3 " STREQUAL " ")
+if(NOT "/home/ncrl/docker_test/catkin_ws/devel/include;/home/ncrl/docker_test/catkin_ws/src/Robotics/finalproject/mav_comm/mav_planning_msgs/include;/usr/include/eigen3 " STREQUAL " ")
   set(mav_planning_msgs_INCLUDE_DIRS "")
-  set(_include_dirs "/home/leeandy/catkin_ws/devel/include;/home/leeandy/catkin_ws/src/Multi-Transportation-ICL/mav_comm/mav_planning_msgs/include;/usr/include/eigen3")
+  set(_include_dirs "/home/ncrl/docker_test/catkin_ws/devel/include;/home/ncrl/docker_test/catkin_ws/src/Robotics/finalproject/mav_comm/mav_planning_msgs/include;/usr/include/eigen3")
   if(NOT "https://github.com/ethz-asl/mav_comm/issues " STREQUAL " ")
     set(_report "Check the issue tracker 'https://github.com/ethz-asl/mav_comm/issues' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT "https://github.com/ethz-asl/mav_comm " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/leeandy/catkin_ws/devel/include;/home/leeandy/catkin_ws/src/Multi-
         message(FATAL_ERROR "Project 'mav_planning_msgs' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'mav_planning_msgs' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/leeandy/catkin_ws/src/Multi-Transportation-ICL/mav_comm/mav_planning_msgs/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'mav_planning_msgs' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/ncrl/docker_test/catkin_ws/src/Robotics/finalproject/mav_comm/mav_planning_msgs/${idir}'.  ${_report}")
     endif()
     _list_append_unique(mav_planning_msgs_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/leeandy/catkin_ws/devel/lib;/home/leeandy/catkin_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/ncrl/docker_test/catkin_ws/devel/lib;/home/ncrl/docker_test/catkin_ws/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(mav_planning_msgs_LIBRARIES ${mav_planning_msgs_LIBRARIES})
 
   _list_append_unique(mav_planning_msgs_LIBRARY_DIRS ${${mav_planning_msgs_dep}_LIBRARY_DIRS})
-  _list_append_deduplicate(mav_planning_msgs_EXPORTED_TARGETS ${${mav_planning_msgs_dep}_EXPORTED_TARGETS})
+  list(APPEND mav_planning_msgs_EXPORTED_TARGETS ${${mav_planning_msgs_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "mav_planning_msgs-msg-extras.cmake")

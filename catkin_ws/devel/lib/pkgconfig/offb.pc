@@ -1,4 +1,4 @@
-prefix=/home/leeandy/catkin_ws/devel
+prefix=/home/ncrl/docker_test/catkin_ws/devel
 
 Name: offb
 Description: Description of offb

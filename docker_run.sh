@@ -20,7 +20,7 @@ BASH_OPTION=bash
 
 
 docker run --gpus all -it \
-    -e DISPLAY \
+    --env="DISPLAY=$DISPLAY" \
     -e QT_X11_NO_MITSHM=1 \
     -e XAUTHORITY=$XAUTH \
     -v "$XAUTH:$XAUTH" \
