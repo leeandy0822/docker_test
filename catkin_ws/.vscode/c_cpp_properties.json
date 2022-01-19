@@ -1,0 +1,23 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/leeandy/catkin_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/leeandy/catkin_ws/src/audio/include/**",
+        "/home/leeandy/catkin_ws/src/cv_basics/include/**",
+        "/home/leeandy/catkin_ws/src/rosserial/rosserial_server/include/**",
+        "/home/leeandy/catkin_ws/src/rosserial/rosserial_test/include/**",
+        "/home/leeandy/catkin_ws/src/autonomous_exploration_development_environment/src/velodyne_simulator/velodyne_gazebo_plugins/include/**",
+        "/home/leeandy/catkin_ws/src/autonomous_exploration_development_environment/src/waypoint_rviz_plugin/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}

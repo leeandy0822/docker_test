@@ -1,0 +1,8 @@
+prefix=/home/leeandy/catkin_ws/devel
+
+Name: co2_rad_map
+Description: Description of co2_rad_map
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

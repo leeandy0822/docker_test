@@ -1,0 +1,8 @@
+prefix=/home/leeandy/catkin_ws/devel
+
+Name: plottest
+Description: Description of plottest
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: roscpp

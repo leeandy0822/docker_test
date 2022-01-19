@@ -1,0 +1,31 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/leeandy/subt-system/catkin_ws/devel/include/**",
+        "/home/leeandy/catkin_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/leeandy/catkin_ws/src/cv_basics/include/**",
+        "/home/leeandy/subt-system/catkin_ws/src/sensors/flir_boson_usb/include/**",
+        "/home/leeandy/subt-system/catkin_ws/src/husky/husky_base/include/**",
+        "/home/leeandy/subt-system/catkin_ws/src/actuator/interbotix_sdk/include/**",
+        "/home/leeandy/subt-system/catkin_ws/src/sensors/imu/microstrain_mips/include/**",
+        "/home/leeandy/subt-system/catkin_ws/src/sensors/realsense-ros-2.2.15/realsense2_camera/include/**",
+        "/home/leeandy/catkin_ws/src/rosserial/rosserial_server/include/**",
+        "/home/leeandy/catkin_ws/src/rosserial/rosserial_test/include/**",
+        "/home/leeandy/subt-system/catkin_ws/src/sensors/imu/sbg_ros_driver/include/**",
+        "/home/leeandy/subt-system/catkin_ws/src/sensors/mmwave/ti_mmwave_rospkg/include/**",
+        "/home/leeandy/subt-system/catkin_ws/src/sensors/vector_gps/include/**",
+        "/home/leeandy/subt-system/catkin_ws/src/sensors/velodyne/velodyne_driver/include/**",
+        "/home/leeandy/subt-system/catkin_ws/src/sensors/velodyne/velodyne_pointcloud/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}
