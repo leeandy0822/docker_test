@@ -24,7 +24,7 @@ docker run --gpus all -it \
     -e QT_X11_NO_MITSHM=1 \
     -e XAUTHORITY=$XAUTH \
     -v "$XAUTH:$XAUTH" \
-    -v "/home/$USER/docker_test:/home/ncrl/docker_test" \
+    -v "/home/$USER/ncrl_robotics:/home/ncrl/ncrl_robotics" \
     -v "/tmp/.X11-unix:/tmp/.X11-unix" \
     -v "/etc/localtime:/etc/localtime:ro" \
     -v "/dev:/dev" \
@@ -33,5 +33,5 @@ docker run --gpus all -it \
     --rm \
     --privileged \
     --security-opt seccomp=unconfined \
-    test
+    leeandy90833/ncrl:robotics
     $BASH_OPTION

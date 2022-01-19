@@ -62,18 +62,7 @@ RUN sudo apt-get -o Acquire::ForceIPv4=true update && sudo apt-get -o Acquire::F
     ros-melodic-control-toolbox \
     python-catkin-tools \
     protobuf-compiler \
-    libgoogle-glog-dev 
-
-RUN git clone https://github.com/leeandy0822/docker_test.git
-
-ENV NVIDIA_VISIBLE_DEVICES \
-    ${NVIDIA_VISIBLE_DEVICES:-all}
-ENV NVIDIA_DRIVER_CAPABILITIES \
-    ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
-
-
-    
-RUN sudo apt-get -o Acquire::ForceIPv4=true update && sudo apt-get -o Acquire::ForceIPv4=true install -q -y\
+    libgoogle-glog-dev \
     python-cvxopt \
     ros-melodic-ompl \
     ros-melodic-mavros \
@@ -81,7 +70,18 @@ RUN sudo apt-get -o Acquire::ForceIPv4=true update && sudo apt-get -o Acquire::F
     ros-melodic-mavros-msgs \
     libompl-dev 
 
+
+ENV NVIDIA_VISIBLE_DEVICES \
+    ${NVIDIA_VISIBLE_DEVICES:-all}
+ENV NVIDIA_DRIVER_CAPABILITIES \
+    ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
+
+
+
+RUN git clone https://github.com/leeandy0822/ncrl_robotics.git
+
+
 WORKDIR  /opt/ros/melodic/lib/mavros 
 RUN sudo ./install_geographiclib_datasets.sh 
-WORKDIR /home/ncrl/docker_test
-RUN source setup.bash
+
+WORKDIR /home/ncrl/ncrl_robotics

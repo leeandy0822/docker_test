@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
-#
-# Typical usage: ./join.bash subt
-#
 
 BASH_OPTION=bash
 
-IMG=test
+IMG=leeandy90833/ncrl:robotics
 
 xhost +
 containerid=$(docker ps -aqf "ancestor=${IMG}") && echo $containerid

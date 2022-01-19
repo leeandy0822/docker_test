@@ -1,4 +1,4 @@
-prefix=/home/ncrl/docker_test/catkin_ws/devel
+prefix=/home/ncrl/ncrl_robotics/catkin_ws/devel
 
 Name: plotmap
 Description: Description of plotmap
