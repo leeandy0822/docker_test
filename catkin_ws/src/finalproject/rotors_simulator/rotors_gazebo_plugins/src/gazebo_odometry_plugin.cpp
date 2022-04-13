@@ -89,7 +89,7 @@ void GazeboOdometryPlugin::Load(physics::ModelPtr _model,
   if (_sdf->HasElement("covarianceImage")) {
     std::string image_name =
         _sdf->GetElement("covarianceImage")->Get<std::string>();
-    covariance_image_ = cv::imread(image_name, CV_LOAD_IMAGE_GRAYSCALE);
+    covariance_image_ = cv::imread(image_name, cv::IMREAD_GRAYSCALE);
     if (covariance_image_.data == NULL)
       gzerr << "loading covariance image " << image_name << " failed"
             << std::endl;
@@ -142,13 +142,13 @@ void GazeboOdometryPlugin::Load(physics::ModelPtr _model,
   getSdfParam<double>(_sdf, "unknownDelay", unknown_delay_, unknown_delay_);
   getSdfParam<double>(_sdf, "covarianceImageScale", covariance_image_scale_,
                       covariance_image_scale_);
+
   parent_link_ = world_->EntityByName(parent_frame_id_);
-  //parent_link_ = world_->GetEntity(parent_frame_id_);
   if (parent_link_ == NULL && parent_frame_id_ != kDefaultParentFrameId) {
     gzthrow("[gazebo_odometry_plugin] Couldn't find specified parent link \""
             << parent_frame_id_ << "\".");
   }
-   // noise_normal_position.X()
+
   position_n_[0] = NormalDistribution(0, noise_normal_position.X());
   position_n_[1] = NormalDistribution(0, noise_normal_position.Y());
   position_n_[2] = NormalDistribution(0, noise_normal_position.Z());
@@ -245,14 +245,9 @@ void GazeboOdometryPlugin::OnUpdate(const common::UpdateInfo& _info) {
 
   // C denotes child frame, P parent frame, and W world frame.
   // Further C_pose_W_P denotes pose of P wrt. W expressed in C.
-  ignition::math::Pose3d W_pose_W_C = link_->WorldPose();
-
+  ignition::math::Pose3d W_pose_W_C = link_->WorldCoGPose();
   ignition::math::Vector3d C_linear_velocity_W_C = link_->RelativeLinearVel();
   ignition::math::Vector3d C_angular_velocity_W_C = link_->RelativeAngularVel();
-
- // math::Pose W_pose_W_C = link_->GetWorldCoGPose();
- // math::Vector3 C_linear_velocity_W_C = link_->GetRelativeLinearVel();
- // math::Vector3 C_angular_velocity_W_C = link_->GetRelativeAngularVel();
 
   ignition::math::Vector3d gazebo_linear_velocity = C_linear_velocity_W_C;
   ignition::math::Vector3d gazebo_angular_velocity = C_angular_velocity_W_C;

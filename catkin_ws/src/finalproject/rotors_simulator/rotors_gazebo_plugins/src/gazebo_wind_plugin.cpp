@@ -134,8 +134,8 @@ void GazeboWindPlugin::OnUpdate(const common::UpdateInfo& _info) {
   }
 
   // Get the current simulation time.
-  //common::Time now = world_->GetSimTime();
-    common::Time now = world_.get()->SimTime();
+  common::Time now = world_->SimTime();
+  
   ignition::math::Vector3d wind_velocity(0.0, 0.0, 0.0);
 
   // Choose user-specified method for calculating wind velocity.
@@ -159,7 +159,7 @@ void GazeboWindPlugin::OnUpdate(const common::UpdateInfo& _info) {
     wrench_stamped_msg_.mutable_header()->mutable_stamp()->set_sec(now.sec);
     wrench_stamped_msg_.mutable_header()->mutable_stamp()->set_nsec(now.nsec);
 
-    wrench_stamped_msg_.mutable_wrench()->mutable_force()->set_x( wind.X()+
+    wrench_stamped_msg_.mutable_wrench()->mutable_force()->set_x(wind.X() +
                                                                  wind_gust.X());
     wrench_stamped_msg_.mutable_wrench()->mutable_force()->set_y(wind.Y() +
                                                                  wind_gust.Y());
@@ -179,11 +179,8 @@ void GazeboWindPlugin::OnUpdate(const common::UpdateInfo& _info) {
     // Get the current position of the aircraft in world coordinates.
     ignition::math::Vector3d link_position = link_->WorldPose().Pos();
 
-
-//    ignition::math::Vector3d link_position = link_.get()->GetWorld().get->p
     // Calculate the x, y index of the grid points with x, y-coordinate 
     // just smaller than or equal to aircraft x, y position.
-
     std::size_t x_inf = floor((link_position.X() - min_x_) / res_x_);
     std::size_t y_inf = floor((link_position.Y() - min_y_) / res_y_);
 
@@ -257,11 +254,9 @@ void GazeboWindPlugin::OnUpdate(const common::UpdateInfo& _info) {
       // Extract the wind velocities corresponding to each vertex.
       ignition::math::Vector3d wind_at_vertices[n_vertices];
       for (std::size_t i = 0u; i < n_vertices; ++i) {
-
         wind_at_vertices[i].X() = u_[idx_x[i] + idx_y[i] * n_x_ + idx_z[i] * n_x_ * n_y_];
         wind_at_vertices[i].Y() = v_[idx_x[i] + idx_y[i] * n_x_ + idx_z[i] * n_x_ * n_y_];
         wind_at_vertices[i].Z() = w_[idx_x[i] + idx_y[i] * n_x_ + idx_z[i] * n_x_ * n_y_];
-
       }
 
       // Extract the relevant coordinate of every point needed for trilinear 

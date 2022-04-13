@@ -71,11 +71,16 @@ RUN sudo apt-get -o Acquire::ForceIPv4=true update && sudo apt-get -o Acquire::F
     libompl-dev 
 
 
+RUN sudo apt-get -o Acquire::ForceIPv4=true update && sudo apt-get -o Acquire::ForceIPv4=true install -q -y ros-melodic-husky-simulator
+RUN sudo apt-get -o Acquire::ForceIPv4=true update && sudo apt-get -o Acquire::ForceIPv4=true install -q -y ros-melodic-apriltag-ros
+RUN echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
+RUN echo "source ~/ncrl_robotics/catkin_ws/devel/setup.bash" >> ~/.bashrc
+
+
 ENV NVIDIA_VISIBLE_DEVICES \
     ${NVIDIA_VISIBLE_DEVICES:-all}
 ENV NVIDIA_DRIVER_CAPABILITIES \
     ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
-
 
 
 RUN git clone https://github.com/leeandy0822/ncrl_robotics.git
@@ -85,3 +90,4 @@ WORKDIR  /opt/ros/melodic/lib/mavros
 RUN sudo ./install_geographiclib_datasets.sh 
 
 WORKDIR /home/ncrl/ncrl_robotics
+

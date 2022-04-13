@@ -24,7 +24,7 @@
 #include <ctime>
 
 #include <mav_msgs/Actuators.h>
-using namespace ignition;
+
 namespace gazebo {
 
 GazeboBagPlugin::~GazeboBagPlugin() {
@@ -131,7 +131,6 @@ void GazeboBagPlugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf) {
   // Get the contact manager.
   std::vector<std::string> collisions;
   contact_mgr_ = world_->Physics()->GetContactManager();
-  //contact_mgr_ = world_->GetPhysicsEngine()->GetContactManager();
   for (unsigned int i = 0; i < link_->GetCollisions().size(); ++i) {
     physics::CollisionPtr collision = link_->GetCollision(i);
     collisions.push_back(collision->GetScopedName());
@@ -337,7 +336,7 @@ void GazeboBagPlugin::LogGroundTruth(const common::Time now) {
   geometry_msgs::TwistStamped twist_msg;
 
   // Get pose and update the message.
-  math::Pose3d pose = link_->WorldPose();
+  ignition::math::Pose3d pose = link_->WorldPose();
   pose_msg.header.frame_id = frame_id_;
   pose_msg.header.stamp.sec = now.sec;
   pose_msg.header.stamp.nsec = now.nsec;
@@ -352,8 +351,8 @@ void GazeboBagPlugin::LogGroundTruth(const common::Time now) {
   writeBag(namespace_ + "/" + ground_truth_pose_topic_, ros_now, pose_msg);
 
   // Get twist and update the message.
-  math::Vector3d linear_veloctiy = link_->WorldLinearVel();
-  math::Vector3d angular_veloctiy = link_->WorldAngularVel();
+  ignition::math::Vector3d linear_veloctiy = link_->WorldLinearVel();
+  ignition::math::Vector3d angular_veloctiy = link_->WorldAngularVel();
   twist_msg.header.frame_id = frame_id_;
   twist_msg.header.stamp.sec = now.sec;
   twist_msg.header.stamp.nsec = now.nsec;

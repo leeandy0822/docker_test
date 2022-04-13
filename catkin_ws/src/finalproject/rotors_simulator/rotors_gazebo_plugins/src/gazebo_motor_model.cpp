@@ -37,7 +37,6 @@ void GazeboMotorModel::Publish() {
     motor_velocity_pub_->Publish(turning_velocity_msg_);
   }
   if (publish_position_) {
-      //joint_->Position(0)
     position_msg_.set_data(joint_->Position(0));
     motor_position_pub_->Publish(position_msg_);
   }
@@ -432,7 +431,7 @@ void GazeboMotorModel::UpdateForcesAndMoments() {
                       motor_constant_;
 
       // Apply a force to the link.
-      link_->AddRelativeForce(ignition::math::Vector3d(0, 0, thrust));
+      link_->AddRelativeForce(ignition::math::Vector3d (0, 0, thrust));
 
       // Forces from Philppe Martin's and Erwan Salaün's
       // 2010 IEEE Conference on Robotics and Automation paper

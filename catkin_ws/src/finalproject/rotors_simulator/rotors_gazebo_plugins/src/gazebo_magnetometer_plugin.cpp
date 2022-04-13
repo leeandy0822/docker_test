@@ -107,7 +107,7 @@ void GazeboMagnetometerPlugin::Load(physics::ModelPtr _model,
 
   // Initialize the reference magnetic field vector in world frame, taking into
   // account the initial bias
-  mag_W_ = math::Vector3d (ref_mag_north + initial_bias[0](random_generator_),
+  mag_W_ = ignition::math::Vector3d (ref_mag_north + initial_bias[0](random_generator_),
                          ref_mag_east + initial_bias[1](random_generator_),
                          ref_mag_down + initial_bias[2](random_generator_));
 
@@ -153,16 +153,16 @@ void GazeboMagnetometerPlugin::OnUpdate(const common::UpdateInfo& _info) {
   }
 
   // Get the current pose and time from Gazebo
-  math::Pose3d T_W_B = link_->WorldPose();
+  ignition::math::Pose3d T_W_B = link_->WorldPose();
   common::Time current_time = world_->SimTime();
 
   // Calculate the magnetic field noise.
-  math::Vector3d mag_noise(noise_n_[0](random_generator_),
+  ignition::math::Vector3d mag_noise(noise_n_[0](random_generator_),
                           noise_n_[1](random_generator_),
                           noise_n_[2](random_generator_));
 
   // Rotate the earth magnetic field into the inertial frame
-  math::Vector3d field_B = T_W_B.Rot().RotateVectorReverse(mag_W_ + mag_noise);
+  ignition::math::Vector3d field_B = T_W_B.Rot().RotateVectorReverse(mag_W_ + mag_noise);
 
   // Fill the magnetic field message
   mag_message_.mutable_header()->mutable_stamp()->set_sec(current_time.sec);

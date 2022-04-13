@@ -191,8 +191,7 @@ void GazeboImuPlugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf) {
     }
   }
 
-  //gravity_W_ = world_->GetPhysicsEngine()->GetGravity();
-    gravity_W_ = world_->Gravity();
+  gravity_W_ = world_->Gravity();
   imu_parameters_.gravity_magnitude = gravity_W_.Length();
 
   standard_normal_distribution_ = std::normal_distribution<double>(0.0, 1.0);
@@ -279,13 +278,13 @@ void GazeboImuPlugin::OnUpdate(const common::UpdateInfo& _info) {
   last_time_ = current_time;
   double t = current_time.Double();
 
-  math::Pose3d T_W_I = link_->WorldPose();  // TODO(burrimi): Check tf.
-  math::Quaterniond C_W_I = T_W_I.Rot();
+  ignition::math::Pose3d T_W_I = link_->WorldPose();  // TODO(burrimi): Check tf.
+  ignition::math::Quaterniond C_W_I = T_W_I.Rot();
 
-  math::Vector3d acceleration_I =
+  ignition::math::Vector3d acceleration_I =
       link_->RelativeLinearAccel() - C_W_I.RotateVectorReverse(gravity_W_);
 
-  math::Vector3d angular_vel_I = link_->RelativeAngularVel();
+  ignition::math::Vector3d angular_vel_I = link_->RelativeAngularVel();
 
   Eigen::Vector3d linear_acceleration_I(acceleration_I.X(), acceleration_I.Y(),
                                         acceleration_I.Z());

@@ -16,7 +16,7 @@ if [ ! -f $XAUTH ]; then
     chmod a+r $XAUTH
 fi
 
-BASH_OPTION=bash
+BASH_OPTION=zsh
 
 
 docker run --gpus all -it \

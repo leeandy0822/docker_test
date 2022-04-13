@@ -1,0 +1,8 @@
+prefix=/home/ncrl/ncrl_robotics/catkin_ws/devel
+
+Name: husky_navigation
+Description: Description of husky_navigation
+Version: 0.6.2
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

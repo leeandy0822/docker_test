@@ -1,0 +1,8 @@
+prefix=/home/ncrl/ncrl_robotics/catkin_ws/devel
+
+Name: husky_gazebo
+Description: Description of husky_gazebo
+Version: 0.6.2
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

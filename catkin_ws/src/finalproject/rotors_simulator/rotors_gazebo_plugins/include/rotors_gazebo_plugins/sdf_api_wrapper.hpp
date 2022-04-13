@@ -23,7 +23,7 @@
 #define ROTORS_GAZEBO_PLUGINS_SDF_API_WRAPPER_H
 
 #include <gazebo/gazebo.hh>
-#include <ignition/math/Vector3.hh>
+
 namespace gazebo {
 
 #if SDF_MAJOR_VERSION >= 3

@@ -23,7 +23,7 @@
 
 // USER
 #include "ConnectGazeboToRosTopic.pb.h"
-using namespace ignition;
+
 namespace gazebo {
 
 GazeboGpsPlugin::GazeboGpsPlugin()
@@ -69,7 +69,7 @@ void GazeboGpsPlugin::Load(sensors::SensorPtr _sensor, sdf::ElementPtr _sdf) {
 
   // Get the pointer to the link that holds the sensor.
   link_ =
-      boost::dynamic_pointer_cast<physics::Link>(world_->BaseByName(link_name));
+      boost::dynamic_pointer_cast<physics::Link>(world_->EntityByName(link_name));
   if (link_ == NULL)
     gzerr << "[gazebo_gps_plugin] Couldn't find specified link \"" << link_name
           << "\"\n";
@@ -166,10 +166,10 @@ void GazeboGpsPlugin::OnUpdate() {
   common::Time current_time;
 
   // Get the linear velocity in the world frame.
-  math::Vector3d W_ground_speed_W_L = link_->WorldLinearVel();
+  ignition::math::Vector3d W_ground_speed_W_L = link_->WorldLinearVel();
 
   // Apply noise to ground speed.
-  W_ground_speed_W_L += math::Vector3d(ground_speed_n_[0](random_generator_),
+  W_ground_speed_W_L += ignition::math::Vector3d (ground_speed_n_[0](random_generator_),
                                       ground_speed_n_[1](random_generator_),
                                       ground_speed_n_[2](random_generator_));
 

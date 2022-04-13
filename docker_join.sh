@@ -6,6 +6,7 @@ IMG=leeandy90833/ncrl:robotics
 
 xhost +
 containerid=$(docker ps -aqf "ancestor=${IMG}") && echo $containerid
+
 docker exec -it \
     --privileged \
     -e DISPLAY=${DISPLAY} \

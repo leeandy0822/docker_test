@@ -106,10 +106,9 @@ void LeePositionControllerNode::CommandPoseCallback(
   command_waiting_times_.clear();
 
   mav_msgs::EigenTrajectoryPoint eigen_reference;
-  //put pose_msg data into eigen_reference
   mav_msgs::eigenTrajectoryPointFromPoseMsg(*pose_msg, &eigen_reference);
   commands_.push_front(eigen_reference);
-  //change the pose_cmd to force_cmd.
+
   lee_position_controller_.SetTrajectoryPoint(commands_.front());
   commands_.pop_front();
 }

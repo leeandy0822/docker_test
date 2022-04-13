@@ -41,7 +41,7 @@
 #include "Float32.pb.h"
 #include "CommandMotorSpeed.pb.h"
 #include "WindSpeed.pb.h"
-#include "ignition/math.hh"
+
 namespace turning_direction {
 const static int CCW = 1;
 const static int CW = -1;
@@ -187,7 +187,6 @@ class GazeboMotorModel : public MotorModel, public ModelPlugin {
 
   std::unique_ptr<FirstOrderFilter<double>> rotor_velocity_filter_;
   ignition::math::Vector3d wind_speed_W_;
-  //math::Vector3 wind_speed_W_;
 };
 
 } // namespace gazebo {

@@ -1,4 +1,4 @@
-prefix=/home/ncrl/ncrl_robotics/catkin_ws/devel
+prefix=/home/leeandy/ncrl_robotics/catkin_ws/devel
 
 Name: plottest
 Description: Description of plottest

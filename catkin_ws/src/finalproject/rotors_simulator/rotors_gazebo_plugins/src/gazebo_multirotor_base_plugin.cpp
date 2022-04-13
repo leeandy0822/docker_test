@@ -120,8 +120,6 @@ void GazeboMultirotorBasePlugin::OnUpdate(const common::UpdateInfo& _info) {
     actuators_msg_.add_angular_velocities(motor_rot_vel);
 
     joint_state_msg_.add_name(m->second->GetName());
-
-//    joint_state_msg_.add_position(m->second->GetAngle(0).Radian());
     joint_state_msg_.add_position(m->second->Position(0));
   }
 

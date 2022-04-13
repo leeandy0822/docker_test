@@ -73,7 +73,7 @@ void GazeboLidarPlugin::Load(sensors::SensorPtr _parent, sdf::ElementPtr _sdf)
     gzthrow("RayPlugin requires a Ray Sensor as its parent");
 
   this->world = physics::get_world(this->parentSensor->WorldName());
-   // this->parentSensor.get()->WorldName()
+
   this->newLaserScansConnection =
     this->parentSensor->LaserShape()->ConnectNewLaserScans(
       boost::bind(&GazeboLidarPlugin::OnNewLaserScans, this));
