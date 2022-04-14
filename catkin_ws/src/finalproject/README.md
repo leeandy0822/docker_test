@@ -1,4 +1,4 @@
-# Rotor_simulator
+# FinalPorject
 This is a Gazebo simulation package for ros 18.04. The package is migrated from the [rotorS](https://github.com/ethz-asl/rotors_simulator).
 
 # Requirements
