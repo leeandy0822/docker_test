@@ -3,6 +3,6 @@ prefix=/home/ncrl/ncrl_robotics/catkin_ws/devel
 Name: rotors_joy_interface
 Description: Description of rotors_joy_interface
 Version: 2.2.3
-Cflags: -I/home/ncrl/ncrl_robotics/catkin_ws/src/finalproject/rotors_simulator/rotors_joy_interface/include
+Cflags: -I/home/ncrl/ncrl_robotics/catkin_ws/src/finalproject/multirotor_geometry_control/rotors_simulator/rotors_joy_interface/include
 Libs: -L${prefix}/lib 
 Requires: roscpp geometry_msgs mav_msgs sensor_msgs trajectory_msgs

@@ -1,4 +1,4 @@
-prefix=/home/leeandy/ncrl_robotics/catkin_ws/devel
+prefix=/home/ncrl/ncrl_robotics/catkin_ws/devel
 
 Name: hybrid_astar
 Description: Description of hybrid_astar

@@ -85,7 +85,6 @@ ENV NVIDIA_DRIVER_CAPABILITIES \
 
 RUN git clone https://github.com/leeandy0822/ncrl_robotics.git
 
-
 WORKDIR  /opt/ros/melodic/lib/mavros 
 RUN sudo ./install_geographiclib_datasets.sh 
 
